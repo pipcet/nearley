@@ -41,6 +41,7 @@ describe("bin/nearleyc", function() {
                                            const grammar = Grammar.fromCompiled(compiledGrammar)
                                            const parser = new Parser(grammar)
                                            parser.feed('<4>')
+                                           parser.results = [...parser.socrates([])];
                                            console.log(JSON.stringify(parser.results))`);
 
         {
