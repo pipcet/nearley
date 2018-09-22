@@ -9,8 +9,11 @@ var generate = require('../lib/generate');
 
 function parse(grammar, input) {
     var p = new nearley.Parser(grammar);
-    p.feed(input);
-    return p.results;
+    var results = [];
+    for (let r of p.socrates(p.lex(input))) {
+        results.push(r);
+    }
+    return results;
 }
 
 function nearleyc(source) {

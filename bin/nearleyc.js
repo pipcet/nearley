@@ -55,6 +55,7 @@ input
     .pipe(new StreamWrapper(parser))
     .on('finish', function() {
         parser.feed('\n');
+        parser.results = [...parser.socrates([])];
         var c = Compile(
             parser.results[0],
             Object.assign({version: version}, opts)
